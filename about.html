@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | Mill Engineering</title>
-  <meta name="description" content="Mill Engineering is an Engineering Solutions Company committed to practical, application-focused engineering across five industries.">
-  <link rel="canonical" href="https://www.milleng.in/">
+  <meta name="description" content="Mill Engineering is an Engineering Solutions Company committed to practical, application-focused engineering across six industries including Steel, Hydropower, Cement and Automotive.">
+  <link rel="canonical" href="https://www.milleng.in/about.html">
   <meta property="og:title" content="About Us | Mill Engineering">
-  <meta property="og:description" content="Mill Engineering is an Engineering Solutions Company committed to practical, application-focused engineering across five industries.">
+  <meta property="og:description" content="An Engineering Solutions Company committed to practical, application-focused engineering across six industries.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.milleng.in/about.html">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/components.css">
 </head>
-<body class="no-hero ">
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="ambient-light"><span class="orb-1"></span><span class="orb-2"></span><span class="orb-3"></span></div>
-<header class="site-header">
-    <div class="container nav-row">
-      <a href="index.html" class="logo-link">
-        <img src="assets/logo-mark-nav.png" alt="Mill Engineering" width="166" height="56">
-      </a>
-      <nav>
-        <ul class="nav-links">
+
+<header class="site-header" role="banner">
+  <div class="container nav-row">
+    <a href="index.html" class="logo-link" aria-label="Mill Engineering Home">
+      <svg width="166" height="40" viewBox="0 0 166 40" fill="none" aria-hidden="true"><rect width="166" height="40" rx="4" fill="#0a1628"/><text x="12" y="26" font-family="Manrope,sans-serif" font-size="14" font-weight="700" fill="#ffffff">MILL ENGINEERING</text></svg>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="industries/index.html">Industries</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
         <li><a href="capabilities.html">Capabilities</a></li>
         <li><a href="technology-partners.html">Technology Partners</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="nav-cta">
-        <a href="contact.html" class="btn btn-primary">Discuss Your Engineering Challenge</a>
-      </div>
-      <button class="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-primary">Discuss Your Challenge</a>
     </div>
-  </header>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
+<main id="main-content">
 <section class="page-header">
   <div class="container">
     <p class="breadcrumb"><a href="index.html">Home</a> / About</p>
@@ -56,99 +56,101 @@
   </div>
 </section>
 
-<section class="section">
+
+<section class="section" aria-labelledby="overview-heading">
   <div class="container">
     <div class="grid grid-2 reveal" style="gap:56px; align-items:center;">
       <div>
-        <h2>Company Overview</h2>
-        <p style="margin-top:20px; font-size:18px; color:var(--color-muted);">We work with customers from the earliest stage of identifying operational challenges through technology evaluation, engineering studies, modernization planning and execution support.</p>
-        <p style="margin-top:16px; font-size:18px; color:var(--color-muted);">Our philosophy is simple: every engineering challenge deserves careful evaluation, every application deserves individual attention and every recommendation should be based on engineering judgement &mdash; not short-term trends.</p>
-        <p style="margin-top:16px; font-size:18px; color:var(--color-muted);">We serve Steel &amp; Metals, Mining &amp; Mineral Processing, Hydropower, Cement and Automotive industries, helping customers improve reliability, maintainability, efficiency and long-term asset performance through thoughtful engineering.</p>
+        <h2 id="overview-heading">Company Overview</h2>
+        <p style="margin-top:20px; font-size:var(--text-lg); color:var(--color-text-secondary);">We work with customers from the earliest stage of identifying operational challenges through technology evaluation, engineering studies, modernization planning and execution support.</p>
+        <p style="margin-top:16px; font-size:var(--text-lg); color:var(--color-text-secondary);">Our philosophy is simple: every engineering challenge deserves careful evaluation, every application deserves individual attention and every recommendation should be based on engineering judgement&mdash;not short-term trends.</p>
+        <p style="margin-top:16px; font-size:var(--text-lg); color:var(--color-text-secondary);">We serve Steel &amp; Metals, Hydropower, Cement, Automotive, Infrastructure and Manufacturing industries, helping customers improve reliability, maintainability, efficiency and long-term asset performance through thoughtful engineering.</p>
       </div>
-      <div class="img-placeholder" style="aspect-ratio:4/5;"><span>About / Team or Facility — image placeholder</span></div>
+      <div class="img-wrapper" style="aspect-ratio:4/5;"><img src="assets/images/about-team.jpg" alt="Mill Engineering team presenting end-to-end engineering solutions in conference room" class="section-img" loading="lazy" width="480" height="600"></div>
     </div>
   </div>
 </section>
 
-<section class="section" style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+<section class="section" style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);" aria-labelledby="approach-heading">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">Engineering Approach</p>
-      <h2>How we work, every time.</h2>
+      <h2 id="approach-heading">How we work, every time.</h2>
     </div>
     <div class="grid grid-3">
-      <div class="card reveal" style="padding:32px;">
-        <span class="index" style="font-family:var(--font-technical); color:var(--color-secondary); font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;">Step 01</span>
-        <h3 style="margin-top:12px; font-size:19px;">Understand the application before discussing technology.</h3>
+      <div class="card reveal">
+        <span class="chip">Step 01</span>
+        <h3 style="margin-top:12px; font-size:var(--text-lg);">Understand the application before discussing technology.</h3>
       </div>
-      <div class="card reveal" style="padding:32px;">
-        <span class="index" style="font-family:var(--font-technical); color:var(--color-secondary); font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;">Step 02</span>
-        <h3 style="margin-top:12px; font-size:19px;">Study the operating conditions before recommending equipment.</h3>
+      <div class="card reveal">
+        <span class="chip">Step 02</span>
+        <h3 style="margin-top:12px; font-size:var(--text-lg);">Study the operating conditions before recommending equipment.</h3>
       </div>
-      <div class="card reveal" style="padding:32px;">
-        <span class="index" style="font-family:var(--font-technical); color:var(--color-secondary); font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;">Step 03</span>
-        <h3 style="margin-top:12px; font-size:19px;">Evaluate alternatives objectively.</h3>
+      <div class="card reveal">
+        <span class="chip">Step 03</span>
+        <h3 style="margin-top:12px; font-size:var(--text-lg);">Evaluate alternatives objectively.</h3>
       </div>
-      <div class="card reveal" style="padding:32px;">
-        <span class="index" style="font-family:var(--font-technical); color:var(--color-secondary); font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;">Step 04</span>
-        <h3 style="margin-top:12px; font-size:19px;">Select solutions that create measurable long-term value.</h3>
+      <div class="card reveal">
+        <span class="chip">Step 04</span>
+        <h3 style="margin-top:12px; font-size:var(--text-lg);">Select solutions that create measurable long-term value.</h3>
       </div>
-      <div class="card reveal" style="padding:32px;">
-        <span class="index" style="font-family:var(--font-technical); color:var(--color-secondary); font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;">Step 05</span>
-        <h3 style="margin-top:12px; font-size:19px;">Support implementation with engineering expertise.</h3>
+      <div class="card reveal">
+        <span class="chip">Step 05</span>
+        <h3 style="margin-top:12px; font-size:var(--text-lg);">Support implementation with engineering expertise.</h3>
       </div>
-      <div class="card reveal" style="padding:32px;">
-        <span class="index" style="font-family:var(--font-technical); color:var(--color-secondary); font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;">Step 06</span>
-        <h3 style="margin-top:12px; font-size:19px;">Remain available throughout the asset lifecycle.</h3>
+      <div class="card reveal">
+        <span class="chip">Step 06</span>
+        <h3 style="margin-top:12px; font-size:var(--text-lg);">Remain available throughout the asset lifecycle.</h3>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+
+<section class="section" aria-labelledby="reasons-heading">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">Why Clients Choose Mill Engineering</p>
-      <h2>Seven reasons customers keep coming back.</h2>
+      <h2 id="reasons-heading">Seven reasons customers keep coming back.</h2>
     </div>
     <div class="grid grid-3">
       <div class="reveal" style="display:flex; gap:14px; align-items:flex-start;">
         <div style="width:8px;height:8px;border-radius:50%;background:var(--color-secondary); margin-top:10px; flex-shrink:0;"></div>
-        <p style="font-size:17px; font-weight:600; color:var(--color-primary);">Engineering-first mindset</p>
+        <p style="font-size:var(--text-base); font-weight:var(--weight-bold); color:var(--color-heading);">Engineering-first mindset</p>
       </div>
       <div class="reveal" style="display:flex; gap:14px; align-items:flex-start;">
         <div style="width:8px;height:8px;border-radius:50%;background:var(--color-secondary); margin-top:10px; flex-shrink:0;"></div>
-        <p style="font-size:17px; font-weight:600; color:var(--color-primary);">Practical modernization strategies</p>
+        <p style="font-size:var(--text-base); font-weight:var(--weight-bold); color:var(--color-heading);">Practical modernization strategies</p>
       </div>
       <div class="reveal" style="display:flex; gap:14px; align-items:flex-start;">
         <div style="width:8px;height:8px;border-radius:50%;background:var(--color-secondary); margin-top:10px; flex-shrink:0;"></div>
-        <p style="font-size:17px; font-weight:600; color:var(--color-primary);">Independent technology evaluation</p>
+        <p style="font-size:var(--text-base); font-weight:var(--weight-bold); color:var(--color-heading);">Independent technology evaluation</p>
       </div>
       <div class="reveal" style="display:flex; gap:14px; align-items:flex-start;">
         <div style="width:8px;height:8px;border-radius:50%;background:var(--color-secondary); margin-top:10px; flex-shrink:0;"></div>
-        <p style="font-size:17px; font-weight:600; color:var(--color-primary);">Long-term technical partnership</p>
+        <p style="font-size:var(--text-base); font-weight:var(--weight-bold); color:var(--color-heading);">Long-term technical partnership</p>
       </div>
       <div class="reveal" style="display:flex; gap:14px; align-items:flex-start;">
         <div style="width:8px;height:8px;border-radius:50%;background:var(--color-secondary); margin-top:10px; flex-shrink:0;"></div>
-        <p style="font-size:17px; font-weight:600; color:var(--color-primary);">Focus on lifecycle value</p>
+        <p style="font-size:var(--text-base); font-weight:var(--weight-bold); color:var(--color-heading);">Focus on lifecycle value</p>
       </div>
       <div class="reveal" style="display:flex; gap:14px; align-items:flex-start;">
         <div style="width:8px;height:8px;border-radius:50%;background:var(--color-secondary); margin-top:10px; flex-shrink:0;"></div>
-        <p style="font-size:17px; font-weight:600; color:var(--color-primary);">Multi-industry engineering experience</p>
+        <p style="font-size:var(--text-base); font-weight:var(--weight-bold); color:var(--color-heading);">Multi-industry engineering experience</p>
       </div>
       <div class="reveal" style="display:flex; gap:14px; align-items:flex-start;">
         <div style="width:8px;height:8px;border-radius:50%;background:var(--color-secondary); margin-top:10px; flex-shrink:0;"></div>
-        <p style="font-size:17px; font-weight:600; color:var(--color-primary);">Commitment to technical integrity</p>
+        <p style="font-size:var(--text-base); font-weight:var(--weight-bold); color:var(--color-heading);">Commitment to technical integrity</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" aria-label="Call to action">
   <div class="container">
     <div class="cta-band reveal">
       <p class="eyebrow" style="color:rgba(255,255,255,0.7);">Contact</p>
-      <h2>Let's discuss your engineering challenge.</h2>
+      <h2>Let&rsquo;s discuss your engineering challenge.</h2>
       <p>Our team is ready to talk through your application and identify practical engineering solutions.</p>
       <div class="cta-actions">
         <a href="contact.html" class="btn btn-primary" style="background:#fff; color:var(--color-primary);">Discuss Your Engineering Challenge</a>
@@ -156,65 +158,70 @@
     </div>
   </div>
 </section>
+</main>
 
-<footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="assets/logo-full-footer.png" alt="Mill Engineering" width="132" height="140">
-          <p>Engineering Begins With Understanding. An Engineering Solutions Company serving Steel &amp; Metals, Mining, Hydropower, Cement and Automotive industries.</p>
-        </div>
-        <div class="footer-col">
-          <h5>Quick Links</h5>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="industries/index.html">Industries</a></li>
-            <li><a href="capabilities.html">Capabilities</a></li>
-            <li><a href="resources.html">Resources</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Industries</h5>
-          <ul>
-            <li><a href="industries/steel-metals.html">Steel &amp; Metals</a></li>
-            <li><a href="industries/mining.html">Mining &amp; Mineral Processing</a></li>
-            <li><a href="industries/hydropower.html">Hydropower</a></li>
-            <li><a href="industries/cement.html">Cement</a></li>
-            <li><a href="industries/automotive.html">Automotive</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Company</h5>
-          <ul>
-            <li><a href="technology-partners.html">Technology Partners</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-service.html">Terms of Service</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Contact</h5>
-          <ul>
-            <li>TOF-04, 3rd Floor, Surya Treasure Island, Junwani, Bhilai, Chhattisgarh</li>
-            <li><a href="tel:+919039899917">+91 90398 99917</a></li>
-            <li><a href="mailto:mill.eng@outlook.com">mill.eng@outlook.com</a></li>
-          </ul>
-        </div>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <svg width="132" height="40" viewBox="0 0 132 40" fill="none" aria-label="Mill Engineering"><rect width="132" height="40" rx="4" fill="#0a1628" stroke="#1e293b"/><text x="10" y="26" font-family="Manrope,sans-serif" font-size="12" font-weight="700" fill="#ffffff">MILL ENGINEERING</text></svg>
+        <p>Engineering Begins With Understanding. An Engineering Solutions Company serving Steel &amp; Metals, Hydropower, Cement, Automotive, Infrastructure and Manufacturing industries.</p>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Mill Engineering. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-of-service.html">Terms of Service</a>
-          <a href="sitemap.xml">Sitemap</a>
-        </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="capabilities.html">Capabilities</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Industries</h5>
+        <ul>
+          <li>Steel &amp; Metals</li>
+          <li>Hydropower</li>
+          <li>Cement</li>
+          <li>Automotive</li>
+          <li>Infrastructure</li>
+          <li>Manufacturing</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="technology-partners.html">Technology Partners</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li>TOF-04, 3rd Floor, Surya Treasure Island, Junwani, Bhilai, Chhattisgarh</li>
+          <li><a href="tel:+919039899917">+91 90398 99917</a></li>
+          <li><a href="mailto:mill.eng@outlook.com">mill.eng@outlook.com</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
-  <button class="back-to-top" aria-label="Back to top">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-  </button>
-<script src="js/main.js"></script>
-
+    <div class="footer-bottom">
+      <p>&copy; 2026 Mill Engineering. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button class="back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/animations.js" defer></script>
 </body>
 </html>
