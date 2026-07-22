@@ -875,3 +875,188 @@ a:focus-visible, button:focus-visible {
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
 }
+
+
+
+/* ============================================================
+   TECHNOLOGY PARTNERS SHOWCASE
+   Premium glassmorphism grid inspired by Siemens/ABB/Emerson
+   ============================================================ */
+
+.partners-showcase {
+  position: relative;
+  padding: var(--section-py) 0;
+  background: var(--color-bg);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Blueprint grid overlay */
+.partners-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(var(--color-secondary-rgb), 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--color-secondary-rgb), 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient glow effects */
+.partners-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.partners-glow--1 {
+  width: 500px; height: 500px;
+  top: -10%; right: -5%;
+  background: radial-gradient(circle, rgba(var(--color-secondary-rgb), 0.07) 0%, transparent 65%);
+  filter: blur(40px);
+}
+.partners-glow--2 {
+  width: 400px; height: 400px;
+  bottom: -10%; left: -5%;
+  background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.05) 0%, transparent 65%);
+  filter: blur(40px);
+}
+
+/* Section head center alignment */
+.partners-showcase .section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--space-16);
+}
+
+/* Partner grid - 5 columns desktop */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+
+/* Partner card - glassmorphism */
+.partner-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  text-decoration: none;
+  transition:
+    transform var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out),
+    background var(--duration-normal) var(--ease-out);
+  overflow: hidden;
+}
+
+/* Subtle top-edge highlight */
+.partner-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--color-secondary-rgb), 0.3), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+/* Inner container */
+.partner-card__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+/* Logo styling - grayscale by default */
+.partner-logo {
+  max-width: 140px;
+  max-height: 56px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1.8) contrast(0.8);
+  opacity: 0.6;
+  transition:
+    filter var(--duration-normal) var(--ease-out),
+    opacity var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out);
+}
+
+/* Partner name */
+.partner-card__name {
+  font-family: var(--font-technical);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-muted);
+  letter-spacing: var(--tracking-wide);
+  transition: color var(--duration-normal) var(--ease-out);
+}
+
+/* HOVER STATE */
+.partner-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(var(--color-secondary-rgb), 0.25);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 24px rgba(var(--color-secondary-rgb), 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  background: rgba(13, 27, 42, 0.8);
+}
+.partner-card:hover::before { opacity: 1; }
+.partner-card:hover .partner-logo {
+  filter: grayscale(0%) brightness(1) contrast(1);
+  opacity: 1;
+  transform: scale(1.05);
+}
+.partner-card:hover .partner-card__name {
+  color: var(--color-text);
+}
+
+/* FOCUS STATE (accessibility) */
+.partner-card:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 4px;
+  border-radius: var(--radius-lg);
+}
+.partner-card:focus-visible .partner-logo {
+  filter: grayscale(0%) brightness(1) contrast(1);
+  opacity: 1;
+}
+
+/* RESPONSIVE - 3 columns tablet */
+@media (max-width: 1024px) {
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+/* RESPONSIVE - 2 columns mobile */
+@media (max-width: 640px) {
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  .partner-card {
+    padding: var(--space-6) var(--space-4);
+  }
+  .partner-logo {
+    max-width: 110px;
+    max-height: 44px;
+  }
+}

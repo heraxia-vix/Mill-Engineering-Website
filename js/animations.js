@@ -162,6 +162,43 @@
       y: 80,
       scrollTrigger: { trigger: 'body', start: 'top top', end: 'bottom bottom', scrub: 3 }
     });
+
+    // === TECHNOLOGY PARTNERS GRID STAGGER ===
+    var partnerCards = document.querySelectorAll('.partner-card');
+    if (partnerCards.length > 0) {
+      gsap.from(partnerCards, {
+        y: 50,
+        opacity: 0,
+        scale: 0.92,
+        duration: 0.6,
+        stagger: {
+          each: 0.08,
+          from: 'start'
+        },
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.partners-grid',
+          start: 'top 85%',
+          once: true
+        }
+      });
+    }
+
+    // Partners section glow parallax
+    var partnersGlow1 = document.querySelector('.partners-glow--1');
+    var partnersGlow2 = document.querySelector('.partners-glow--2');
+    if (partnersGlow1) {
+      gsap.to(partnersGlow1, {
+        y: -60, x: 20,
+        scrollTrigger: { trigger: '.partners-showcase', start: 'top bottom', end: 'bottom top', scrub: 2 }
+      });
+    }
+    if (partnersGlow2) {
+      gsap.to(partnersGlow2, {
+        y: 40, x: -15,
+        scrollTrigger: { trigger: '.partners-showcase', start: 'top bottom', end: 'bottom top', scrub: 2.5 }
+      });
+    }
   }
 
 })();
