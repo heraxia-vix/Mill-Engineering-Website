@@ -1,0 +1,6 @@
+{
+  "name": "Mill Engineering",
+  "description": "Engineering Solutions Company serving Steel & Metals, Mining, Hydropower, Cement and Automotive industries through engineering advisory, technology evaluation and industrial modernization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
