@@ -2,7 +2,7 @@ name: Deploy Mill Engineering website
 
 on:
   push:
-    branches: [main]
+    branches: [production-launch-2026, main]
   workflow_dispatch:
 
 permissions:
@@ -39,6 +39,7 @@ jobs:
           path: ./dist
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
