@@ -17,6 +17,7 @@ export default function App() {
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
   const [enquiryTopic, setEnquiryTopic] = useState('');
 
+  // Synchronize with URL hash for easy sharing & back-button support
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '').trim();
@@ -31,7 +32,9 @@ export default function App() {
       }
     };
 
-    if (window.location.hash) handleHashChange();
+    if (window.location.hash) {
+      handleHashChange();
+    }
 
     const meta: Record<string, [string, string]> = {
       home: ['Mill Engineering | Engineering Solutions Company', 'Engineering solutions for Steel & Metals, Mining, Hydropower, Cement and Automotive industries.'],
@@ -52,11 +55,9 @@ export default function App() {
     };
     updateMeta();
     window.addEventListener('hashchange', updateMeta);
+
     window.addEventListener('hashchange', handleHashChange);
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-      window.removeEventListener('hashchange', updateMeta);
-    };
+    return () => { window.removeEventListener('hashchange', handleHashChange); window.removeEventListener('hashchange', updateMeta); };
   }, []);
 
   const handleNavigate = (page: string) => {
@@ -79,20 +80,90 @@ export default function App() {
     <>
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900">Skip to content</a>
       <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-sky-200 selection:text-sky-950">
-        <Navbar currentPage={currentPage} onNavigate={handleNavigate} onOpenEnquiryModal={() => handleOpenEnquiry()} />
-        <main id="main-content" className="flex-1">
-          {currentPage === 'home' && <HomeView onNavigate={handleNavigate} onOpenEnquiryModal={handleOpenEnquiry} onSelectIndustry={handleSelectIndustry} />}
-          {currentPage === 'capabilities' && <CapabilitiesView onNavigate={handleNavigate} onOpenEnquiryModal={handleOpenEnquiry} />}
-          {currentPage === 'industries' && <IndustriesView onNavigate={handleNavigate} onOpenEnquiryModal={handleOpenEnquiry} initialIndustryId={selectedIndustryId} />}
-          {currentPage === 'about' && <AboutView onNavigate={handleNavigate} onOpenEnquiryModal={() => handleOpenEnquiry('General About Inquiry')} />}
-          {currentPage === 'technology-partners' && <TechnologyPartnersView onNavigate={handleNavigate} onOpenEnquiryModal={handleOpenEnquiry} />}
-          {currentPage === 'resources' && <ResourcesView onNavigate={handleNavigate} onOpenEnquiryModal={handleOpenEnquiry} />}
-          {currentPage === 'contact' && <ContactView onNavigate={handleNavigate} prefilledTopic={enquiryTopic} />}
-          {currentPage === 'privacy-policy' && <LegalView type="privacy-policy" onNavigate={handleNavigate} />}
-          {currentPage === 'terms-of-service' && <LegalView type="terms-of-service" onNavigate={handleNavigate} />}
-        </main>
-        <Footer onNavigate={handleNavigate} />
-        <EnquiryModal isOpen={enquiryModalOpen} onClose={() => setEnquiryModalOpen(false)} defaultTopic={enquiryTopic} />
+      {/* Universal Navbar */}
+      <Navbar
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
+        onOpenEnquiryModal={() => handleOpenEnquiry()}
+      />
+
+      {/* Main Page Content Router */}
+      <main id="main-content" className="flex-1">
+        {currentPage === 'home' && (
+          <HomeView
+            onNavigate={handleNavigate}
+            onOpenEnquiryModal={handleOpenEnquiry}
+            onSelectIndustry={handleSelectIndustry}
+          />
+        )}
+
+        {currentPage === 'capabilities' && (
+          <CapabilitiesView
+            onNavigate={handleNavigate}
+            onOpenEnquiryModal={handleOpenEnquiry}
+          />
+        )}
+
+        {currentPage === 'industries' && (
+          <IndustriesView
+            onNavigate={handleNavigate}
+            onOpenEnquiryModal={handleOpenEnquiry}
+            initialIndustryId={selectedIndustryId}
+          />
+        )}
+
+        {currentPage === 'about' && (
+          <AboutView
+            onNavigate={handleNavigate}
+            onOpenEnquiryModal={() => handleOpenEnquiry('General About Inquiry')}
+          />
+        )}
+
+        {currentPage === 'technology-partners' && (
+          <TechnologyPartnersView
+            onNavigate={handleNavigate}
+            onOpenEnquiryModal={handleOpenEnquiry}
+          />
+        )}
+
+        {currentPage === 'resources' && (
+          <ResourcesView
+            onNavigate={handleNavigate}
+            onOpenEnquiryModal={handleOpenEnquiry}
+          />
+        )}
+
+        {currentPage === 'contact' && (
+          <ContactView
+            onNavigate={handleNavigate}
+            prefilledTopic={enquiryTopic}
+          />
+        )}
+
+        {currentPage === 'privacy-policy' && (
+          <LegalView
+            type="privacy-policy"
+            onNavigate={handleNavigate}
+          />
+        )}
+
+        {currentPage === 'terms-of-service' && (
+          <LegalView
+            type="terms-of-service"
+            onNavigate={handleNavigate}
+          />
+        )}
+      </main>
+
+      {/* Universal Footer */}
+      <Footer onNavigate={handleNavigate} />
+
+      {/* Reusable Enquiry Dialog */}
+      <EnquiryModal
+        isOpen={enquiryModalOpen}
+        onClose={() => setEnquiryModalOpen(false)}
+        defaultTopic={enquiryTopic}
+      />
       </div>
     </>
   );
