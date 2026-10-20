@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle2, AlertTriangle, ArrowRight, Cog } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Cog, Package } from 'lucide-react';
 import { INDUSTRIES } from '../data/websiteData.ts';
 
 interface IndustriesViewProps {
@@ -7,6 +7,44 @@ interface IndustriesViewProps {
   onOpenEnquiryModal: (topic?: string) => void;
   initialIndustryId?: string;
 }
+
+const PRODUCTS_BY_INDUSTRY: Record<string, string[]> = {
+  'steel-metals': [
+    'Extrusion press hydraulic systems and modernization packages',
+    'High-response cartridge and proportional valve systems',
+    'Descaling valve and accumulator systems',
+    'Offline filtration and hydraulic oil conditioning systems',
+    'Servo, measurement and control technologies'
+  ],
+  mining: [
+    'Hydraulic power units and accumulator systems',
+    'Heavy-duty valve actuation packages',
+    'Abrasive-service sealing and cylinder solutions',
+    'Hydraulic oil cooling and filtration systems',
+    'Inspection, measurement and condition-monitoring technologies'
+  ],
+  hydropower: [
+    'Main inlet valve hydraulic actuation systems',
+    'Governor and electro-hydraulic power units',
+    'Emergency and fail-safe hydraulic systems',
+    'Hydraulic filtration and oil-conditioning systems',
+    'Inspection, measurement and laser-based technologies'
+  ],
+  cement: [
+    'HPGR and grinding-system hydraulic solutions',
+    'Hydraulic power units and accumulator packages',
+    'Valve, actuator and cooling systems',
+    'Offline filtration and oil-conditioning systems',
+    'Automation, measurement and condition-monitoring technologies'
+  ],
+  automotive: [
+    'Press-line hydraulic and servo-hydraulic systems',
+    'Hydraulic power units, manifolds and valve packages',
+    'Motion control and automation technologies',
+    'Inspection and dimensional measurement systems',
+    'Factory and machine modernization technologies'
+  ]
+};
 
 export const IndustriesView: React.FC<IndustriesViewProps> = ({
   onNavigate,
@@ -18,6 +56,7 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({
   );
 
   const currentIndustry = INDUSTRIES.find((i) => i.id === selectedIndustryId) || INDUSTRIES[0];
+  const products = PRODUCTS_BY_INDUSTRY[currentIndustry.id] || [];
 
   return (
     <div className="w-full bg-white">
@@ -118,52 +157,57 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({
                 </p>
               </div>
 
-              {/* Typical Challenges vs Solutions Grid */}
+              {/* Our Solutions & Products */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {/* Challenges */}
-                <div className="p-6 rounded-2xl bg-amber-50/50 border border-amber-200/70 space-y-3">
-                  <h4 className="text-xs font-mono font-bold text-amber-900 uppercase tracking-wider flex items-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-amber-600" />
-                    Chronic Challenges
+                <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
+                  <h4 className="text-xs font-mono font-bold text-[#0a2540] uppercase tracking-wider flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600" />
+                    Our Solutions
                   </h4>
-                  <ul className="space-y-2.5 text-xs text-amber-950">
-                    {currentIndustry.challenges.map((c, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0" />
-                        <span>{c}</span>
+                  <ul className="space-y-3 text-xs text-slate-700">
+                    {currentIndustry.solutions.map((solution, i) => (
+                      <li key={i} className="flex items-start gap-2.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-1.5 shrink-0" />
+                        <span>{solution}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Solutions */}
-                <div className="p-6 rounded-2xl bg-emerald-50/50 border border-emerald-200/70 space-y-3">
-                  <h4 className="text-xs font-mono font-bold text-emerald-900 uppercase tracking-wider flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    Engineering Modernizations
+                <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+                  <h4 className="text-xs font-mono font-bold text-[#0a2540] uppercase tracking-wider flex items-center gap-2">
+                    <Package className="w-4 h-4 text-sky-600" />
+                    Products & Technologies
                   </h4>
-                  <ul className="space-y-2.5 text-xs text-emerald-950">
-                    {currentIndustry.solutions.map((s, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                        <span>{s}</span>
+                  <ul className="space-y-3 text-xs text-slate-700">
+                    {products.map((product, i) => (
+                      <li key={i} className="flex items-start gap-2.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 shrink-0" />
+                        <span>{product}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              {/* Action */}
-              <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-                <span className="text-xs text-slate-500 font-mono">
-                  Applications in {currentIndustry.title}
-                </span>
-                <button
-                  onClick={() => onOpenEnquiryModal(`Industry Consultation: ${currentIndustry.title}`)}
-                  className="px-6 py-3 bg-[#0a2540] hover:bg-[#0c2f52] text-white font-semibold text-xs rounded-xl shadow-md transition-colors flex items-center justify-center gap-2"
-                >
-                  Discuss Your {currentIndustry.title} Challenge <ArrowRight className="w-4 h-4" />
-                </button>
+              {/* Applications & Enquiry */}
+              <div className="pt-5 border-t border-slate-100">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div>
+                    <span className="text-xs font-mono font-bold text-sky-700 uppercase tracking-wider block mb-1">
+                      Applications
+                    </span>
+                    <p className="text-xs text-slate-600">
+                      Application-led engineering, technology selection and implementation support for {currentIndustry.title}.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => onOpenEnquiryModal(`Industry Consultation: ${currentIndustry.title}`)}
+                    className="px-6 py-3 bg-[#0a2540] hover:bg-[#0c2f52] text-white font-semibold text-xs rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 shrink-0"
+                  >
+                    Discuss Your {currentIndustry.title} Requirement <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
