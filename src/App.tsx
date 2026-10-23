@@ -17,7 +17,6 @@ export default function App() {
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
   const [enquiryTopic, setEnquiryTopic] = useState('');
 
-  // Synchronize with URL hash for easy sharing & back-button support
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '').trim();
@@ -55,7 +54,6 @@ export default function App() {
     };
     updateMeta();
     window.addEventListener('hashchange', updateMeta);
-
     window.addEventListener('hashchange', handleHashChange);
     return () => { window.removeEventListener('hashchange', handleHashChange); window.removeEventListener('hashchange', updateMeta); };
   }, []);
@@ -74,96 +72,75 @@ export default function App() {
   const handleSelectIndustry = (id: string) => {
     setSelectedIndustryId(id);
     window.location.hash = `industry-${id}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <>
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900">Skip to content</a>
       <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-sky-200 selection:text-sky-950">
-      {/* Universal Navbar */}
-      <Navbar
-        currentPage={currentPage}
-        onNavigate={handleNavigate}
-        onOpenEnquiryModal={() => handleOpenEnquiry()}
-      />
+        <Navbar
+          currentPage={currentPage}
+          onNavigate={handleNavigate}
+          onOpenEnquiryModal={() => handleOpenEnquiry()}
+        />
 
-      {/* Main Page Content Router */}
-      <main id="main-content" className="flex-1">
-        {currentPage === 'home' && (
-          <HomeView
-            onNavigate={handleNavigate}
-            onOpenEnquiryModal={handleOpenEnquiry}
-            onSelectIndustry={handleSelectIndustry}
-          />
-        )}
+        <main id="main-content" className="flex-1">
+          {currentPage === 'home' && (
+            <HomeView
+              onNavigate={handleNavigate}
+              onOpenEnquiryModal={handleOpenEnquiry}
+              onSelectIndustry={handleSelectIndustry}
+            />
+          )}
 
-        {currentPage === 'capabilities' && (
-          <CapabilitiesView
-            onNavigate={handleNavigate}
-            onOpenEnquiryModal={handleOpenEnquiry}
-          />
-        )}
+          {currentPage === 'capabilities' && (
+            <CapabilitiesView onNavigate={handleNavigate} onOpenEnquiryModal={handleOpenEnquiry} />
+          )}
 
-        {currentPage === 'industries' && (
-          <IndustriesView
-            onNavigate={handleNavigate}
-            onOpenEnquiryModal={handleOpenEnquiry}
-            initialIndustryId={selectedIndustryId}
-          />
-        )}
+          {currentPage === 'industries' && (
+            <IndustriesView
+              onNavigate={handleNavigate}
+              onOpenEnquiryModal={handleOpenEnquiry}
+              initialIndustryId={selectedIndustryId}
+            />
+          )}
 
-        {currentPage === 'about' && (
-          <AboutView
-            onNavigate={handleNavigate}
-            onOpenEnquiryModal={() => handleOpenEnquiry('General About Inquiry')}
-          />
-        )}
+          {currentPage === 'about' && (
+            <AboutView
+              onNavigate={handleNavigate}
+              onOpenEnquiryModal={() => handleOpenEnquiry('General About Inquiry')}
+            />
+          )}
 
-        {currentPage === 'technology-partners' && (
-          <TechnologyPartnersView
-            onNavigate={handleNavigate}
-            onOpenEnquiryModal={handleOpenEnquiry}
-          />
-        )}
+          {currentPage === 'technology-partners' && (
+            <TechnologyPartnersView onNavigate={handleNavigate} onOpenEnquiryModal={handleOpenEnquiry} />
+          )}
 
-        {currentPage === 'resources' && (
-          <ResourcesView
-            onNavigate={handleNavigate}
-            onOpenEnquiryModal={handleOpenEnquiry}
-          />
-        )}
+          {currentPage === 'resources' && (
+            <ResourcesView onNavigate={handleNavigate} onOpenEnquiryModal={handleOpenEnquiry} />
+          )}
 
-        {currentPage === 'contact' && (
-          <ContactView
-            onNavigate={handleNavigate}
-            prefilledTopic={enquiryTopic}
-          />
-        )}
+          {currentPage === 'contact' && (
+            <ContactView onNavigate={handleNavigate} prefilledTopic={enquiryTopic} />
+          )}
 
-        {currentPage === 'privacy-policy' && (
-          <LegalView
-            type="privacy-policy"
-            onNavigate={handleNavigate}
-          />
-        )}
+          {currentPage === 'privacy-policy' && (
+            <LegalView type="privacy-policy" onNavigate={handleNavigate} />
+          )}
 
-        {currentPage === 'terms-of-service' && (
-          <LegalView
-            type="terms-of-service"
-            onNavigate={handleNavigate}
-          />
-        )}
-      </main>
+          {currentPage === 'terms-of-service' && (
+            <LegalView type="terms-of-service" onNavigate={handleNavigate} />
+          )}
+        </main>
 
-      {/* Universal Footer */}
-      <Footer onNavigate={handleNavigate} />
+        <Footer onNavigate={handleNavigate} onSelectIndustry={handleSelectIndustry} />
 
-      {/* Reusable Enquiry Dialog */}
-      <EnquiryModal
-        isOpen={enquiryModalOpen}
-        onClose={() => setEnquiryModalOpen(false)}
-        defaultTopic={enquiryTopic}
-      />
+        <EnquiryModal
+          isOpen={enquiryModalOpen}
+          onClose={() => setEnquiryModalOpen(false)}
+          defaultTopic={enquiryTopic}
+        />
       </div>
     </>
   );
