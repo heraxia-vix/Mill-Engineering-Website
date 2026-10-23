@@ -75,13 +75,11 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-      {/* Backdrop */}
       <div
         className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
 
-      {/* Modal Dialog */}
       <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6 sm:p-8 z-10 border border-slate-200 overflow-hidden my-8">
         <button
           onClick={onClose}
@@ -133,15 +131,13 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Your Name *
-                  </label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Your Name *</label>
                   <div className="relative">
                     <User className="w-4 h-4 text-slate-400 absolute left-3 top-3 pointer-events-none" />
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Ramesh Sharma"
+                      placeholder="Enter your full name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
@@ -150,15 +146,13 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Company / Organization *
-                  </label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Company / Organization *</label>
                   <div className="relative">
                     <Building2 className="w-4 h-4 text-slate-400 absolute left-3 top-3 pointer-events-none" />
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Jindal Steel / Vedanta"
+                      placeholder="Enter company or organization"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
@@ -169,12 +163,10 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Designation / Role
-                  </label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Designation / Role</label>
                   <input
                     type="text"
-                    placeholder="e.g. Head of Maintenance / Plant GM"
+                    placeholder="Enter designation or role"
                     value={formData.designation}
                     onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
                     className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
@@ -182,9 +174,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Industry Sector
-                  </label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Industry Sector</label>
                   <select
                     value={formData.industry}
                     onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
@@ -203,15 +193,13 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Work Email *
-                  </label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Work Email *</label>
                   <div className="relative">
                     <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3 pointer-events-none" />
                     <input
                       type="email"
                       required
-                      placeholder="engineer@company.com"
+                      placeholder="Enter your work email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
@@ -220,14 +208,12 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Phone / Mobile
-                  </label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Phone / Mobile</label>
                   <div className="relative">
                     <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3 pointer-events-none" />
                     <input
                       type="tel"
-                      placeholder="+91 98765 43210"
+                      placeholder="Enter phone or mobile number"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
@@ -237,38 +223,25 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Describe Your Engineering Challenge *
-                </label>
-                <div className="relative">
-                  <textarea
-                    rows={4}
-                    required
-                    placeholder="Provide details on equipment, hydraulic issues, modernization targets, or project timeline..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full p-3 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 leading-relaxed"
-                  />
-                </div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">Describe Your Engineering Challenge *</label>
+                <textarea
+                  rows={4}
+                  required
+                  placeholder="Describe your application, equipment, operating conditions, technical challenge or project requirement"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full p-3 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 leading-relaxed"
+                />
               </div>
 
               <div className="pt-2 flex items-center justify-between gap-4">
-                <span className="text-[11px] text-slate-500">
-                  Response within 1 business day &bull; Confidential
-                </span>
+                <span className="text-[11px] text-slate-500">Response within 1 business day &bull; Confidential</span>
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="px-6 py-2.5 bg-[#0a2540] hover:bg-[#0c2f52] text-white font-semibold text-sm rounded-lg shadow-md transition-all flex items-center gap-2 disabled:opacity-60 cursor-pointer"
                 >
-                  {isSubmitting ? (
-                    'Sending...'
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" />
-                      Submit Enquiry
-                    </>
-                  )}
+                  {isSubmitting ? 'Sending...' : <><Send className="w-4 h-4" />Submit Enquiry</>}
                 </button>
               </div>
             </form>
