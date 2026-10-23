@@ -79,6 +79,43 @@ const APPLICATIONS_BY_INDUSTRY: Record<string, string[]> = {
   ]
 };
 
+const HYDROPOWER_SOLUTION_DETAILS = [
+  {
+    title: 'System Analysis & Retrofit Solutions',
+    description: 'Engineering assessment, system analysis and retrofit solutions to improve the performance, reliability and maintainability of existing hydropower systems.'
+  },
+  {
+    title: 'Filtration Systems',
+    description: 'Advanced filtration solutions for hydraulic oil, lubrication systems, cooling water and other critical fluid circuits, helping protect equipment and improve system reliability.'
+  },
+  {
+    title: 'MIV Seal Opening & Closing Solutions',
+    description: 'Hydraulic actuation solutions for MIV maintenance seals, including conversion of manual arrangements to more reliable and controlled hydraulic operation.'
+  },
+  {
+    title: 'Hydraulic Actuation & Trash Rack Systems',
+    description: 'Hydraulic actuation and cleaning solutions for trash racks and other intake systems, designed to improve operation, reduce manual intervention and support reliable plant availability.'
+  },
+  {
+    title: 'Pumping Solutions',
+    description: 'Application-specific pumping solutions for drainage, dewatering, cooling, service water and other critical auxiliary requirements.'
+  },
+  {
+    title: 'Condition Monitoring & Advanced Sensors',
+    description: 'Advanced sensing and monitoring technologies for vibration, temperature, pressure and other operating parameters to help identify developing equipment problems.'
+  },
+  {
+    title: 'Inspection & Diagnostic Technologies',
+    description: 'Specialised inspection, diagnostic and sensing technologies for equipment and areas where conventional inspection methods may not provide sufficient information.'
+  },
+  {
+    title: 'Automation & Instrumentation',
+    description: 'Instrumentation, monitoring and control upgrades for existing hydro installations, including integration of modern technologies with legacy systems.'
+  }
+];
+
+const HYDROPOWER_DESCRIPTION = 'Mill Engineering supports hydropower plants with application-focused engineering, retrofit and technology integration solutions — from analysing existing systems to implementing specialised technologies for critical plant equipment.';
+
 export const IndustriesView: React.FC<IndustriesViewProps> = ({
   onNavigate,
   onOpenEnquiryModal,
@@ -91,6 +128,7 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({
   const currentIndustry = INDUSTRIES.find((i) => i.id === selectedIndustryId) || INDUSTRIES[0];
   const products = PRODUCTS_BY_INDUSTRY[currentIndustry.id] || [];
   const applications = APPLICATIONS_BY_INDUSTRY[currentIndustry.id] || [];
+  const isHydropower = currentIndustry.id === 'hydropower';
 
   return (
     <div className="w-full bg-white">
@@ -164,29 +202,58 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({
                   {currentIndustry.index} &bull; Application Engineering
                 </span>
                 <h2 className="text-3xl font-extrabold text-[#0a2540] mt-1 mb-4">{currentIndustry.title}</h2>
-                <p className="text-base text-slate-700 leading-relaxed font-normal">{currentIndustry.description}</p>
+                <p className="text-base text-slate-700 leading-relaxed font-normal">
+                  {isHydropower ? HYDROPOWER_DESCRIPTION : currentIndustry.description}
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
-                  <h4 className="text-xs font-mono font-bold text-[#0a2540] uppercase tracking-wider flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-sky-600" /> Our Solutions
-                  </h4>
-                  <ul className="space-y-3 text-xs text-slate-700">
-                    {currentIndustry.solutions.map((solution, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-1.5 shrink-0" />
-                        <span>{solution}</span>
-                      </li>
-                    ))}
-                  </ul>
+              {isHydropower ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {HYDROPOWER_SOLUTION_DETAILS.map((solution) => (
+                    <div key={solution.title} className="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-sky-200 hover:shadow-sm transition-all">
+                      <h4 className="text-sm font-bold text-[#0a2540] mb-2">{solution.title}</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed">{solution.description}</p>
+                    </div>
+                  ))}
                 </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
+                    <h4 className="text-xs font-mono font-bold text-[#0a2540] uppercase tracking-wider flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-sky-600" /> Our Solutions
+                    </h4>
+                    <ul className="space-y-3 text-xs text-slate-700">
+                      {currentIndustry.solutions.map((solution, i) => (
+                        <li key={i} className="flex items-start gap-2.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-1.5 shrink-0" />
+                          <span>{solution}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
+                  <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+                    <h4 className="text-xs font-mono font-bold text-[#0a2540] uppercase tracking-wider flex items-center gap-2">
+                      <Package className="w-4 h-4 text-sky-600" /> Products & Technologies
+                    </h4>
+                    <ul className="space-y-3 text-xs text-slate-700">
+                      {products.map((product, i) => (
+                        <li key={i} className="flex items-start gap-2.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 shrink-0" />
+                          <span>{product}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+
+              {isHydropower && (
                 <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
                   <h4 className="text-xs font-mono font-bold text-[#0a2540] uppercase tracking-wider flex items-center gap-2">
                     <Package className="w-4 h-4 text-sky-600" /> Products & Technologies
                   </h4>
-                  <ul className="space-y-3 text-xs text-slate-700">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-xs text-slate-700">
                     {products.map((product, i) => (
                       <li key={i} className="flex items-start gap-2.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 shrink-0" />
@@ -195,7 +262,7 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({
                     ))}
                   </ul>
                 </div>
-              </div>
+              )}
 
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                 <div className="flex items-center gap-3 mb-4">
