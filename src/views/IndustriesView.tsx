@@ -114,7 +114,52 @@ const HYDROPOWER_SOLUTION_DETAILS = [
   }
 ];
 
+const STEEL_METALS_SOLUTION_DETAILS = [
+  {
+    title: 'Hot Stamping & Marking Solutions',
+    description: 'Automated stamping, marking and identification solutions for billets, blooms, slabs, rails and other steel products.'
+  },
+  {
+    title: 'Profile & Surface Measurement',
+    description: 'Non-contact measurement solutions for product profile, dimensions, surface condition, flatness and other critical parameters.'
+  },
+  {
+    title: 'Length, Speed & Velocity Measurement',
+    description: 'Precision measurement solutions for continuous casting, rolling, cutting and material handling applications.'
+  },
+  {
+    title: 'Hot & Cold Cutting Solutions',
+    description: 'Precision cutting solutions for billets, blooms, slabs, rails and other steel products, with accurate process measurement and control.'
+  },
+  {
+    title: 'Descaling Systems',
+    description: 'High-pressure descaling solutions for removing scale and supporting consistent surface quality in demanding steel-processing applications.'
+  },
+  {
+    title: 'Hydraulic & Extrusion Press Upgrades',
+    description: 'Modernisation of extrusion press hydraulics, hydraulic circuits, controls and associated systems to improve reliability, performance and productivity.'
+  },
+  {
+    title: 'Pumping Solutions',
+    description: 'Application-specific pumping systems for descaling, cooling water, process water and other critical steel-plant services.'
+  },
+  {
+    title: 'Filtration Systems',
+    description: 'Hydraulic, lubrication, cooling-water and process-fluid filtration solutions for protecting critical equipment and maintaining system performance.'
+  },
+  {
+    title: 'Advanced Sensors & Process Monitoring',
+    description: 'Sensors and measurement technologies for monitoring production speed, dimensions, profile, surface condition and process performance.'
+  },
+  {
+    title: 'Custom Engineering & Upgradation',
+    description: 'Engineering solutions for application-specific challenges, equipment modernisation and system upgrades aimed at improving productivity, performance, reliability and operational efficiency.'
+  }
+];
+
 const HYDROPOWER_DESCRIPTION = 'Mill Engineering supports hydropower plants with application-focused engineering, retrofit and technology integration solutions — from analysing existing systems to implementing specialised technologies for critical plant equipment.';
+
+const STEEL_METALS_DESCRIPTION = 'Mill Engineering supports steel and metal processing plants with application-focused engineering, specialised technologies and retrofit solutions — including process measurement, cutting, descaling, hydraulics, pumping, filtration and custom system upgrades.';
 
 export const IndustriesView: React.FC<IndustriesViewProps> = ({
   onNavigate,
@@ -129,6 +174,7 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({
   const products = PRODUCTS_BY_INDUSTRY[currentIndustry.id] || [];
   const applications = APPLICATIONS_BY_INDUSTRY[currentIndustry.id] || [];
   const isHydropower = currentIndustry.id === 'hydropower';
+  const isSteelMetals = currentIndustry.id === 'steel-metals';
 
   return (
     <div className="w-full bg-white">
@@ -203,13 +249,13 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({
                 </span>
                 <h2 className="text-3xl font-extrabold text-[#0a2540] mt-1 mb-4">{currentIndustry.title}</h2>
                 <p className="text-base text-slate-700 leading-relaxed font-normal">
-                  {isHydropower ? HYDROPOWER_DESCRIPTION : currentIndustry.description}
+                  {isHydropower ? HYDROPOWER_DESCRIPTION : isSteelMetals ? STEEL_METALS_DESCRIPTION : currentIndustry.description}
                 </p>
               </div>
 
-              {isHydropower ? (
+              {isHydropower || isSteelMetals ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {HYDROPOWER_SOLUTION_DETAILS.map((solution) => (
+                  {(isHydropower ? HYDROPOWER_SOLUTION_DETAILS : STEEL_METALS_SOLUTION_DETAILS).map((solution) => (
                     <div key={solution.title} className="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-sky-200 hover:shadow-sm transition-all">
                       <h4 className="text-sm font-bold text-[#0a2540] mb-2">{solution.title}</h4>
                       <p className="text-xs text-slate-600 leading-relaxed">{solution.description}</p>
@@ -248,7 +294,7 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({
                 </div>
               )}
 
-              {isHydropower && (
+              {(isHydropower || isSteelMetals) && (
                 <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
                   <h4 className="text-xs font-mono font-bold text-[#0a2540] uppercase tracking-wider flex items-center gap-2">
                     <Package className="w-4 h-4 text-sky-600" /> Products & Technologies
