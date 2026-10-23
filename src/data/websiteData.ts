@@ -263,27 +263,32 @@ export const INDUSTRIES: Industry[] = [
     id: 'mining',
     title: 'Mining & Mineral Processing',
     index: '02',
-    tagline: 'Technology evaluation and modernization support that improves material handling reliability and performance.',
-    description: 'From primary crushers and ball mills to slurry pipeline stations and thickener rakes, mining equipment faces relentless abrasive wear, extreme vibration, and remote operating locations where unpredicted downtime severely disrupts extraction schedules.',
+    tagline: 'Slurry handling, ore beneficiation, pumping and filtration solutions for demanding mineral-processing environments.',
+    description: 'Mining and mineral-processing operations demand reliable solutions for abrasive slurry, ore beneficiation, solid-liquid separation, dewatering and process-fluid handling. Mill Engineering combines application-focused engineering with specialised pumping, filtration, hydraulic and process technologies, including custom equipment upgrades and system modernisation.',
     image: '/src/assets/images/mining_mineral_plant_1792053324598.jpg',
-    imageAlt: 'Mineral processing plant with slurry pumps and automated hydraulic equipment',
+    imageAlt: 'Mineral processing plant with slurry pumping, filtration and hydraulic equipment',
     operatingConditions: [
-      'Heavy abrasive slurry, rock impact, and dense ore dust',
-      'Remote geographic locations with challenging spare parts logistics',
-      'High mechanical vibration transmission into hydraulic power units',
-      'Wide ambient temperature fluctuations between day and night shifts'
+      'Highly abrasive slurry and mineral-laden process fluids',
+      'Continuous-duty pumping, filtration and beneficiation processes',
+      'High vibration, dust and demanding equipment operating environments',
+      'Remote operating locations where reliability and maintainability are critical'
     ],
     challenges: [
-      'Crusher tramp iron release cylinder seal failure under sudden shock loads',
-      'Slurry valve erosion leading to internal leakage and loss of plant slurry control',
-      'Contamination ingress through cylinder rod packings in open-pit environments',
-      'Unreliable hydraulic drive cooling causing frequent thermal pump trips'
+      'Reliable handling of abrasive slurry and high-solids process streams',
+      'Maintaining efficient solid-liquid separation and filtration performance',
+      'Pump wear, hydraulic losses and reliability issues in demanding services',
+      'Modernising existing process systems without unnecessary equipment replacement'
     ],
     solutions: [
-      'High-reliability tramp release hydraulic circuits with nitrogen accumulator banks',
-      'Abrasive-resistant knife gate and pinch valve actuation packages',
-      'Heavy-duty tandem rod sealing systems with specialized scrapers',
-      'Ruggedized air-blast and shell-and-tube hydraulic oil coolers'
+      'Heavy-Duty Slurry & Process Pumping Solutions',
+      'Slurry & Ore Beneficiation Solutions',
+      'Filtration & Filter Cloth Solutions for mineral-processing applications',
+      'Hydraulic Systems & Actuation for mining and process equipment',
+      'Process Filtration & Fluid Management for critical plant circuits',
+      'Pumping & Dewatering Systems for mine drainage, sump and transfer duties',
+      'Equipment Upgradation & Modernisation for existing plant systems',
+      'Measurement, Sensors & Condition Monitoring for equipment and process parameters',
+      'Custom Engineering Solutions for challenging mining applications'
     ]
   },
   {
