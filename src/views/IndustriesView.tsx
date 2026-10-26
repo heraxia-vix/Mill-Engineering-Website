@@ -141,10 +141,15 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({ onNavigate, onOp
           <span className="text-xs font-mono font-bold text-sky-800 uppercase tracking-[0.16em] block mb-2">Industries</span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0a2540] tracking-tight mb-4">Engineering Across Critical Industries</h1>
           <p className="text-slate-600 text-base sm:text-lg max-w-3xl leading-relaxed">Application-led engineering solutions, technologies and products for demanding industrial environments.</p>
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
             {INDUSTRIES.map((ind) => (
-              <button key={ind.id} onClick={() => selectIndustry(ind.id)} className={`px-4 py-2 text-xs font-semibold rounded-lg transition-colors cursor-pointer flex items-center gap-2 ${selectedIndustryId === ind.id ? 'bg-[#0a2540] text-white shadow-sm' : 'bg-white/80 text-slate-700 hover:bg-white border border-slate-200'}`}>
-                <span className="font-mono text-sky-400">{ind.index}</span><span>{ind.title}</span>
+              <button
+                key={ind.id}
+                onClick={() => selectIndustry(ind.id)}
+                className={`min-h-[72px] sm:min-h-[80px] w-full px-4 sm:px-5 py-4 rounded-xl transition-all duration-200 cursor-pointer flex items-center justify-start gap-3 text-sm sm:text-base font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 ${selectedIndustryId === ind.id ? 'bg-[#0a2540] text-white shadow-md' : 'bg-white/90 text-slate-700 border border-slate-200 hover:border-sky-200 hover:shadow-sm hover:-translate-y-0.5'}`}
+              >
+                <span className={`font-mono text-base sm:text-lg shrink-0 ${selectedIndustryId === ind.id ? 'text-sky-300' : 'text-sky-500'}`}>{ind.index}</span>
+                <span className="leading-snug">{ind.title}</span>
               </button>
             ))}
           </div>
